@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import FontList from "./components/list";
+import FontSelector from "./components/selector";
 
 function App() {
+  const [elementToShow, setElement] = useState("list");
+
+  const changeFontPicker = (e) => {
+    setElement(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="radio-container">
+        <div>
+          List
+          <input
+            type="radio"
+            id="list"
+            name="myRadio"
+            value="list"
+            checked={elementToShow === "list"}
+            onChange={changeFontPicker}
+          />
+        </div>
+        <div>
+          Selector
+          <input
+            type="radio"
+            id="selector"
+            name="myRadio"
+            value="selector"
+            checked={elementToShow === "selector"}
+            onChange={changeFontPicker}
+          />
+        </div>
+      </div>
+      {elementToShow === "list" ? (
+        <FontList
+          selectedFont={(font) => console.log(font)}
+          apiKey={process.env.REACT_APP_GOOGLE_FONTS_KEY}
+        />
+      ) : (
+        <FontSelector
+          className="font-selector"
+          defaultFont="Random Font"
+          selectedFont={(font) => console.log(font)}
+          apiKey={process.env.REACT_APP_GOOGLE_FONTS_KEY}
+        />
+      )}
     </div>
   );
 }

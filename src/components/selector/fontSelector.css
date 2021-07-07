@@ -1,0 +1,16 @@
+.FP-selector .fp-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 8px;
+}
+.FP-selector .fp-option:hover {
+  background-color: #ddd;
+}
+.FP-selector .fp-option span {
+  font-size: 18px;
+  margin: 3px;
+}
+.FP-selector .Select-value {
+  font-size: 18px;
+}
