@@ -10,7 +10,7 @@ Your application needs to identify itself every time it sends a request to the G
 
 - Create `.env` file at the root directory.
 - Put your key inside the .env file
-  `GOOGLE_FONTS_KEY= *your_key*`
+  `REACT_APP_GOOGLE_FONTS_KEY= *your_key*`
 
 ## Run the app
 
